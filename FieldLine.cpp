@@ -11,7 +11,7 @@ FieldLine::FieldLine(sf::Vector2f tailPos, float magnitude, float direction)
 { 
     line.setFillColor(sf::Color::Black);
     line.setPosition(tailPos);
-    line.rotate(-direction);
+    line.rotate(90 + direction);
 }
 
 FieldLine::~FieldLine()

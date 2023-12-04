@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <math.h>
 
 #include <SFML/Graphics.hpp>
 
@@ -32,11 +33,11 @@ class Field
     private:
         float f(double x, double y)
         {
-            return y;
+            return sin(x);
         }
         float g(double x, double y)
         {
-            return x;
+            return sin(y);
         }
 
 };

@@ -1,14 +1,13 @@
 #include <iostream>
 
 #include "Field.h"
-#include "math.h"
 
 Field::Field(sf::RenderWindow& window)
     : useArrows{false},
       xBounds{sf::Vector2f(-10.f, 10.f)},
       yBounds{sf::Vector2f(-10.f, 10.f)},
       density{1.f},
-      stepSize{1.f, 1.f},
+      stepSize{.5, .5},
       window{&window}
 {
 
@@ -22,7 +21,7 @@ Field::Field(sf::RenderWindow& window)
         while (pos.y <= yBounds.y)
         {
             sf::Vector2f relativePos{500 + pos.x*50, 500 + pos.y*50};
-            magnitude = std::sqrt(pos.x*pos.x + pos.y*pos.y);
+            magnitude = std::sqrt(pos.x*pos.x + pos.y*pos.y)*3;
 
             float x_vect = f(pos.x, pos.y);
             float y_vect = g(pos.x, pos.y);
