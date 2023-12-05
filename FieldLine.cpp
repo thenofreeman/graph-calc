@@ -6,16 +6,27 @@ FieldLine::FieldLine(sf::Vector2f tailPos, float magnitude, float direction)
     : tailPos{tailPos},
       magnitude{magnitude},
       direction{direction},
-      showArrow{false},
-      line{sf::Vector2f{3.f, magnitude}}
+      useArrow{false},
+      line{sf::Vector2f{2.f, magnitude}}
 { 
     line.setFillColor(sf::Color::Black);
     line.setPosition(tailPos);
-    line.rotate(90 + direction);
+    float trueDirection = 90 + direction;
+    line.rotate(trueDirection);
 }
 
 FieldLine::~FieldLine()
 { }
+
+void FieldLine::showArrow()
+{
+    useArrow = true;
+}
+
+void FieldLine::noArrow()
+{
+    useArrow = false;
+}
 
 void FieldLine::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {

@@ -7,7 +7,7 @@ Field::Field(sf::RenderWindow& window)
       xBounds{sf::Vector2f(-10.f, 10.f)},
       yBounds{sf::Vector2f(-10.f, 10.f)},
       density{1.f},
-      stepSize{.5, .5},
+      stepSize{1.f, 1.f},
       window{&window}
 {
 
@@ -38,6 +38,7 @@ Field::Field(sf::RenderWindow& window)
             std::cout << "magnt: " << magnitude << std::endl;
 
             FieldLine* line = new FieldLine{relativePos, magnitude, direction};
+            if (useArrows) line->showArrow();
             lines.push_back(line);
 
             pos.y += stepSize.y / density;

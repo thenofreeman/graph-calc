@@ -2,16 +2,21 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <math.h>
+
 class FieldLine : public sf::Drawable
 {
     public:
         FieldLine(sf::Vector2f, float magnitude, float direction);
         ~FieldLine();
 
+        void showArrow();
+        void noArrow();
+
     private:
         sf::Vector2f tailPos;
         sf::Vector2f headPos;
-        bool showArrow;
+        bool useArrow;
         float magnitude;
         float direction;
 
