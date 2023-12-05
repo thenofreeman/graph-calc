@@ -33,11 +33,11 @@ class Field
     private:
         float f(double x, double y)
         {
-            return sin(x);
+            return y;
         }
         float g(double x, double y)
         {
-            return sin(y);
+            return -x;
         }
 
 };
