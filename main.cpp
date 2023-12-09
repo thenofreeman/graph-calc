@@ -2,15 +2,15 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Field.h"
+#include "FieldPlot.h"
 
 int main(int argc, char const *argv[])
 {
     sf::RenderWindow window{sf::VideoMode(1000, 1000), "Vector Field Plot"};
 
-    Field vectField(window);
+    FieldPlot vectField(&window);
 
-    vectField.showArrows();
+    vectField.enableArrows();
 
     // sf::Clock clock;
 

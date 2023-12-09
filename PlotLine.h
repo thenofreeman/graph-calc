@@ -2,33 +2,34 @@
 
 // PlotLine.h
 
+#include <math.h>
+
 #include <SFML/Graphics.hpp>
 
-class PlotLine : public sf::Drawable
+#include "SFMLX/TriangleShape.h"
+
+class PlotLine : public sf::Drawable, public sf::Transformable
 {
     public:
         // Public Member Variables
 
     public:
         PlotLine() = delete;
-        PlotLine(/*...*/); // TODO: Missing arguments
+        PlotLine(sf::Vector2f position, float length, float direction, float weight);
         virtual ~PlotLine();
 
         void enableArrow();
         void disableArrow();
-        void setPosition();
-        void setPosition();
     
     private:
         sf::Vector2f tailPos;
         sf::Vector2f headPos;
         float length;
-        float direction;
+        float weight;
         bool showArrow;
 
         sf::RectangleShape line;
-        sf::RectangleShape leftArrowHead;
-        sf::RectangleShape rightArrowHead;
+        sf::TriangleShape arrowHead;
 
     private:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

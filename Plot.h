@@ -11,13 +11,16 @@ class Plot
 
     public:
         Plot() = delete;
+        Plot(sf::RenderWindow* window, sf::Vector2u globalDimensions);
         virtual ~Plot();
 
-        virtual void draw() = 0;
+        virtual void draw() const = 0;
+        virtual void buildPlot() = 0;
 
-    private:
+    protected:
         sf::RenderWindow* window;
         sf::View view;
+        sf::IntRect globalBounds; 
 
     private:
         // Private Methods
