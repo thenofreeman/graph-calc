@@ -1,8 +1,8 @@
 #include "Plot.h"
 
-Plot::Plot(sf::RenderWindow* window, sf::Vector2u globalDimensions)
+Plot::Plot(sf::RenderWindow* window, sf::IntRect globalBounds)
     : window{window},
-      globalBounds{0, 0, globalDimensions.x, globalDimensions.y}
+      globalBounds{globalBounds}
 { }
 
 Plot::~Plot()

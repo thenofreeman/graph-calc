@@ -11,7 +11,7 @@ class Plot
 
     public:
         Plot() = delete;
-        Plot(sf::RenderWindow* window, sf::Vector2u globalDimensions);
+        Plot(sf::RenderWindow* window, sf::IntRect globalBounds);
         virtual ~Plot();
 
         virtual void draw() const = 0;

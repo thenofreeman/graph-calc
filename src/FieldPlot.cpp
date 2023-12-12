@@ -1,10 +1,12 @@
 #include "FieldPlot.h"
 
 FieldPlot::FieldPlot(sf::RenderWindow* window)
-    : Plot{window, sf::Vector2u{1000, 1000}},
+    : Plot{window, sf::IntRect{-1000, -1000, 1000, 1000}},
       stepSize{sf::Vector2f{50.f, 50.f}},
       lineWeight{2.f}
 { 
+    view.reset(sf::FloatRect());
+
     setFunctions([](float x, float y) -> float { return y; }, 
                  [](float x, float y) -> float { return -x; });
     buildPlot();
@@ -58,7 +60,7 @@ void FieldPlot::buildPlot()
         while (currentPos.x <= globalBounds.width)
         {
             sf::Vector2f relativePosition {currentPos.x, currentPos.y}; 
-            magnitude = std::sqrt(std::pow(currentPos.x, 2) + std::pow(currentPos.y, 2));
+            magnitude = std::sqrt(std::pow(currentPos.x/stepSize.x, 2) + std::pow(currentPos.y/stepSize.y, 2));
 
             float x_vect = f(currentPos.x, currentPos.y);
             float y_vect = g(currentPos.x, currentPos.y);
