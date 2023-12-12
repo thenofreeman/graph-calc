@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -g -I/usr/include/SFML
-LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -Iinclude
 
 SRC_DIR = src
 BUILD_DIR = build
@@ -21,4 +21,3 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 .PHONY: clean
 clean:
 	rm -rf $(BUILD_DIR)
-
