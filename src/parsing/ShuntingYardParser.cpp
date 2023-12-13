@@ -34,6 +34,7 @@ void ShuntingYardParser::parseInfixToAST(const std::string input)
         switch (classifyToken(*it))
         {
             case TokenType::SPACE:
+								// Discard token
                 break;
             case TokenType::NUMBER:
                 std::ostringstream number;
@@ -88,7 +89,26 @@ void ShuntingYardParser::parseInfixToAST(const std::string input)
                     output.push(output.pop());
                 }
                 break;
+            case TokenType::COMMA:
+                while (operators.top()->getType() != TokenType::LEFTPAREN)
+                {
+                    output.push(operator.pop());
+                }
+                break;
+            case TokenType::LEFTBRACE:
+								// TODO:
+                break;
+            case TokenType::RIGHTBRACE:
+								// TODO:
+                break;
+            case TokenType::LEFTBRACKET:
+								// TODO:
+                break;
+            case TokenType::RIGHTBRACKET:
+								// TODO:
+                break;
             default:
+								// TODO:
                 break;
         }
     }
