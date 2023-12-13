@@ -204,6 +204,8 @@ static auto setOperations() -> std::map<TokenType, std::function<double(double, 
         {CSC,    [](double a, double b) -> double { return std::csc(a)}}
         {SEC,    [](double a, double b) -> double { return std::sec(a)}}
         {COT,    [](double a, double b) -> double { return std::cot(a)}}
+        {MIN,    [](double a, double b) -> double { return std::min(a, b)}}
+        {MAX,    [](double a, double b) -> double { return std::max(a, b)}}
     };
 
     return std::move(ops);
