@@ -2,20 +2,26 @@
 
 // ASTNode.h
 
+#include "OperatorType.h"
+
 class ASTNode
 {
     public:
-        ASTNode(char, ASTNode*, ASTNode*);
+        ASTNode(std::string, TokenType);
         virtual ~ASTNode();
 
-        char getValue() const;
+        const std::string getValue() const;
+        const TokenType getType() const;
         const ASTNode* const getLeftNode() const;
         const ASTNode* const getRightNode() const;
 
+        bool setLeftNode(ASTNode*);
+        bool setRightNode(ASTNode*);
 
     private:
-        const char value;
-        const ASTNode* const leftNode;
-        const ASTNode* const rightNode;
+        const std::string value;
+        const TokenType type;
+        const ASTNode* leftNode;
+        const ASTNode* rightNode;
 
 };
